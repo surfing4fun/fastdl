@@ -11,7 +11,7 @@ const server = http.createServer(app);
 const io     = new Server(server);
 
 const PORT         = process.env.PORT || 3003;
-const SERVERS_ROOT = path.resolve(__dirname, '..');  // ../surf & ../bhop
+const SERVERS_ROOT = path.resolve(__dirname, '../servers');  // ../surf & ../bhop
 const FASTDL_ROOT  = __dirname;                      // output root
 const SERVERS      = ['bhop', 'surf'];
 const ASSETS       = ['materials', 'sound'];
@@ -159,10 +159,10 @@ app.get('/update', (req, res) => {
     </div>
   </main>
 
-  <script src="/fastdl/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script>
     const statusDiv = document.getElementById('status');
-    const socket    = io({ path: '/fastdl/socket.io' });
+    const socket    = io({ path: '/socket.io' });
 
     socket.on('connect', () => {
       statusDiv.innerHTML = '';
